@@ -25,7 +25,8 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+  overflow-x: hidden;
+    background: white;
+    color: black;
   }
 }
