@@ -27,21 +27,21 @@ export default function NaBar() {
         </section>
         <div>
           <section className="flex-1 w-full justify-between">
-            <ul className="grid grid-cols-3 gap-9">
+            <ul className="grid grid-cols-3 gap-9 items-center">
               <li>
                 <Link href={"/search"}>
-                  <Image src="/nav-img/search.png" width={26} height={29} />
+                  <Image src="/nav-img/search.png" width={"26"} height={"29"} alt={"search-img"}/>
                 </Link>
               </li>
               <li>
                 <Link href={"/cart"}>
                   {" "}
-                  <Image src="/nav-img/cart.png" width={26} height={29} />
+                  <Image src="/nav-img/cart.png" width={"26"} height={"29"} alt={"cart-img"}/>
                 </Link>
               </li>
               <li>
                 <Link href={"/notify"}>
-                  <Image src="/nav-img/notify.png" width={26} height={29} />
+                  <Image src="/nav-img/notify.png" width={"26"} height={"29"} alt={"notify-img"} />
                 </Link>
               </li>
             </ul>

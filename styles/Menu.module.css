@@ -6,3 +6,7 @@ line-height: 125px;
 letter-spacing: 0px;
 text-align: center;
 }
+.miniText{
+    font-family: 'Satoshi';
+  /* color: red; */
+  }
