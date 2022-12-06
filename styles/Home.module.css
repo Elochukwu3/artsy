@@ -1,12 +1,13 @@
+/* @import url('https://fonts.cdnfonts.com/css/clash-display'); */
+/* @import url('https://fonts.cdnfonts.com/css/satoshi'); */
 .container {
   /* padding: 0 2rem; */
 }
 .featuredText{
-  font-family: 'STIX Two Text', serif;
+  font-family: 'STIX Two Text';
 }
 .miniText{
   font-family: 'Satoshi';
-/* background-color: #000000b3; */
 }
 .homeBanner{
   background: linear-gradient(to right , rgba(70, 147, 237, 1),
@@ -15,4 +16,11 @@
   max-width: 1440px;
 width: 100%;
 border-radius: 0px;
+}
+.clashFont{
+  font-family: 'Clash Display';
+ font-style: Exralight;
+ Fill: Solid
+rgba(0, 0, 0, 0.57);
+/* font-weight: 0; */
 }

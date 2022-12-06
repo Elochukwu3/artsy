@@ -1,5 +1,9 @@
 import styles from "../styles/Home.module.css";
 export default function FeaturedText() {
+  const nums = [1, 2, 3, 4, 5, 6, 7];
+  // const _nums = [...nums, ...nums.slice(0, 1)].slice(-7);
+  const _nums = [...nums.slice(-1), ...nums].slice(0, 7)
+  console.log(_nums);
   return (
     <div className="flex flex-col justify-between gap-4 items-start  h-56 py-0 pr-6">
       <h2 className={`text-4xl ${styles.featuredText}`}>
@@ -18,16 +22,16 @@ export default function FeaturedText() {
             <img src="./featured-img/prof.png" />
           </span>
           <span className="-ml-4">
-            <img src="./featured-img/prof.png" />
+            <img src="./featured-img/prof-two.png" />
           </span>
           <span className="-ml-4">
-            <img src="./featured-img/prof.png" />
+            <img src="./featured-img/prof-three.png" />
           </span>
           <span className="-ml-4">
-            <img src="./featured-img/prof.png" />
+            <img src="./featured-img/prof-four.png" />
           </span>
           <span className="-ml-4">
-            <img src="./featured-img/prof.png" />
+            <img src="./featured-img/prof-five.png" />
           </span>
        
           <div className="pl-5 text-xl font-semibold">
