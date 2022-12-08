@@ -7,7 +7,7 @@ export default function NaBar() {
     <div className="h-auto px-20">
       <nav className="flex justify-between py-10 items-center bg-white">
         <section className="logo">
-          <img src="nav-img/ARTSY.png" />
+          <img src="nav-img/ARTSY.png" alt="nav-img"/>
         </section>
         <section className="menu">
           <ul className="flex gap-10">

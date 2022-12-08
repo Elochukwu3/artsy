@@ -1,13 +1,10 @@
 import styles from "../styles/Home.module.css";
-export default function FeaturedText() {
-  const nums = [1, 2, 3, 4, 5, 6, 7];
-  // const _nums = [...nums, ...nums.slice(0, 1)].slice(-7);
-  const _nums = [...nums.slice(-1), ...nums].slice(0, 7)
-  console.log(_nums);
+export default function FeaturedText({headerText}) {
   return (
-    <div className="flex flex-col justify-between gap-4 items-start  h-56 py-0 pr-6">
-      <h2 className={`text-4xl ${styles.featuredText}`}>
-        The Boolean Egyptian
+    <div className="flex flex-col justify-between gap-4 items-start  min-h-56 py-0 pr-6 max-lg:pr-1 max-md:items-center">
+      <h2 className={`text-4xl ${styles.featuredText} capitalize max-[500px]:hidden`}>
+        {headerText}
+       
       </h2>
       <div>
         <p className={`text-xl ${styles.miniText}`}>
@@ -16,7 +13,7 @@ export default function FeaturedText() {
           porttitor rhoncus dolor pur
         </p>
       </div>
-      <div className="flex justify-between w-full items-center">
+      <div className="flex justify-between w-full items-center ">
         <div className="flex items-center flex-1">
           <span>
             <img src="./featured-img/prof.png" />
@@ -39,7 +36,7 @@ export default function FeaturedText() {
         </div>
         </div>
         
-        <div className="pr-10">
+        <div className="pr-10 max-md:pr-0">
           <p className="px-2 border border-[grey] w-10 h-10 flex items-center justify-center rounded-full">
             <img src="./featured-img/arrow.png" className="w-11/12" />
           </p>
