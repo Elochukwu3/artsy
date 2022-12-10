@@ -1,0 +1,93 @@
+const storedItems =[
+    {
+        img:"./sales-img/img.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"ELLIPSIA",
+
+    },
+    {
+        img:"./sales-img/img-ii.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"THE LAWMAKERS ",
+
+    },
+    {
+        img:"./sales-img/img-6.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"VEIL",
+
+    },
+    {
+        img:"./sales-img/img-one.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"ALTERNATING",
+    },
+    {
+        img:"./sales-img/img-two.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"ROSEMARY ‘22",
+    },
+    {
+        img:"./sales-img/img-three.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"BEVERLY",
+    },
+    {
+        img:"./sales-img/img-four.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"LUOIS",
+    },
+    {
+        img:"./sales-img/img-five.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"LUOIS",
+    },
+    {
+        img:"./sales-img/img-six.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"LUOIS",
+    },
+    {
+        img:"./sales-img/img-8.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"LUOIS",
+    },
+    {
+        img:"./sales-img/img-10.png",
+        price:100,
+        count:1,
+        id:"",
+        artist:"Jhon Elo",
+        name:"LUOIS",
+    }
+]
