@@ -1,6 +1,15 @@
+import DisplayStore from "../../components/DisplayStore";
 import FilterIcons from "../../components/FilterIcons";
+import { storedItems } from '../../assets/salesItems';
 
-function Index() {
+export const getStaticProps = async() =>{
+    return{
+      props: {pages: storedItems}
+    }
+  }
+
+function Index({pages}) {
+  
   return (
     <div>
       <main>
@@ -29,11 +38,13 @@ function Index() {
                 </div>
               </form>
             </header>
-            <section className="w-full flex">
+            <section className="w-full flex gap-8 mt-10">
               <aside className="w-[230px]">
                 <FilterIcons />
               </aside>
-              <div className="flex-1"></div>
+              <div className="flex-1 px-2 flex gap-4 flex-wrap justify-around">
+                <DisplayStore pages={pages}/>
+              </div>
             </section>
           </div>
         </section>
