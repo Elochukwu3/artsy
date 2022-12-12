@@ -1,15 +1,15 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 const CartContextProvider = createContext(null);
+
 export function CartContextCreator({ children }) {
-  const [products, setProducts] = useState(
-    JSON.parse(localStorage.getItem("storedItem"))|| [])
-  const [count, setCount] = useState(1);//count: this shows the qty of items added to the cart
+  const [products, setProducts] = useState([] || JSON.parse(localStorage.getItem("storedItem")));
+
+  const [count, setCount] = useState(1); //count: this shows the qty of items added to the cart
 
   useEffect(() => {
-    localStorage.setItem("storedIems", JSON.stringify(products))
-  }, [products])
-  
+    localStorage.setItem("storedIems", JSON.stringify(products));
+  }, [products]);
 
   const addToCart = (items) => {
     const newItems = {
@@ -17,16 +17,6 @@ export function CartContextCreator({ children }) {
       count: 1,
     };
     setProducts([...products, newItems]);
-  };
-
-  const incrementCount = (productId) => {
-    setCount((prev) => prev + 1);
-    onChangeCount(productId);
-  };
-
-  const decrementCount = (productId) => {
-    setCount((prev) => (prev > 1 ? prev - 1 : (prev = 1)));
-    onChangeCount(productId);
   };
 
   function onChangeCount(productId) {
@@ -42,9 +32,22 @@ export function CartContextCreator({ children }) {
     });
   }
 
+//   increase count(qty)
+  const incrementCount = (productId) => {
+    setCount((prev) => prev + 1);
+    onChangeCount(productId);
+  };
+
+  //decrease count(qty)
+  const decrementCount = (productId) => {
+    setCount((prev) => (prev > 1 ? prev - 1 : (prev = 1)));
+    onChangeCount(productId);
+  };
+
+ 
+
   // removeItem from cart
   const removeItem = (product) => {
-
     setProducts((oldState) => {
       const productIndex = oldState.findIndex((item) => {
         return item.id === product.id;
