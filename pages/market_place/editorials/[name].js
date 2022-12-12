@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cartUseContext } from "../../../components/cartContext";
 import { useRouter } from "next/router";
 import { storedItems } from "../../../assets/salesItems";
 
@@ -27,16 +28,24 @@ export const getStaticProps = (context) => {
 };
 export default function Phiomena({ pages }) {
   const [heart, setHeart] = useState(false);
-  const hanleHeartChange =()=>{
-    setHeart(!heart)
-  }
+  const hanleHeartChange = () => {
+    setHeart(!heart);
+  };
+
   const router = useRouter();
   const redirectPage = () => {
     router.back(-1);
   };
+
+  const { addToCart } = cartUseContext();
+  const handleCart = (items) => {
+    router.push("/cart");
+    addToCart(items);
+  };
   return (
     <div>
-      {pages.map(({ name, img, id }) => {
+      {pages.map((items) => {
+        const { name, img, id } = items;
         return (
           <div key={id} className="w-full">
             <div className="w-full flex justify-center my-12">
@@ -80,15 +89,22 @@ export default function Phiomena({ pages }) {
                       <span className="cursor-pointer">+</span>
                     </p>
                     <div className="w-[90%] h-[68px] flex gap-2">
-                      <button className="bg-[#3341C1] h-full w-[70%] text-white grid grid-cols-2 items-center" onClick={()=> router.push('/cart')}>
+                      <button
+                        className="bg-[#3341C1] h-full w-[70%] text-white grid grid-cols-2 items-center"
+                        onClick={() => handleCart(items)}
+                      >
                         <p className="block">Add to cart </p>
-                        <img src="/icon/sm-arrow.png" className="block"/>
+                        <img src="/icon/sm-arrow.png" className="block" />
                       </button>
-                      <div onClick={hanleHeartChange} className="  border border-[#292929] w-[25%] h-full p-auto block text-[2em] flex justify-center items-center cursor-pointer">
-                     {
-                      !heart ? (<span>  &#9825;</span>):(<span className="text-red-600">&#9829;</span>)
-                     }
-                    
+                      <div
+                        onClick={hanleHeartChange}
+                        className="  border border-[#292929] w-[25%] h-full p-auto block text-[2em] flex justify-center items-center cursor-pointer"
+                      >
+                        {!heart ? (
+                          <span> &#9825;</span>
+                        ) : (
+                          <span className="text-red-600">&#9829;</span>
+                        )}
                       </div>
                     </div>
                   </li>
