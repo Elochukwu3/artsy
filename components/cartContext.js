@@ -1,15 +1,22 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-const CartContextProvider = createContext(null);
+const CartContextProvider = createContext();
+
+const initialStorage = () => {
+  if (typeof window !== "undefined") {
+    const localData = localStorage.getItem("key");
+    return localData ? JSON.parse(localData) : [];
+  }
+};
 
 export function CartContextCreator({ children }) {
-  const [products, setProducts] = useState([] || JSON.parse(localStorage.getItem("storedItem")));
-
-  const [count, setCount] = useState(1); //count: this shows the qty of items added to the cart
+  const [products, setProducts] = useState(initialStorage);
 
   useEffect(() => {
-    localStorage.setItem("storedIems", JSON.stringify(products));
+    localStorage.setItem("key", JSON.stringify(products));
   }, [products]);
+
+  const [count, setCount] = useState(1); //count: this shows the qty of items added to the cart
 
   const addToCart = (items) => {
     const newItems = {
@@ -19,7 +26,7 @@ export function CartContextCreator({ children }) {
     setProducts([...products, newItems]);
   };
 
-  function onChangeCount(productId) {
+  function onChangeCount(productId, count) {
     setProducts((oldState) => {
       const productIndex = oldState.findIndex((item) => {
         return item.id === productId;
@@ -32,19 +39,23 @@ export function CartContextCreator({ children }) {
     });
   }
 
-//   increase count(qty)
+  //   increase count(qty)
   const incrementCount = (productId) => {
-    setCount((prev) => prev + 1);
-    onChangeCount(productId);
+    setCount((prev) => {
+      let _count = prev + 1;
+      onChangeCount(productId, _count);
+      return _count;
+    });
   };
 
   //decrease count(qty)
   const decrementCount = (productId) => {
-    setCount((prev) => (prev > 1 ? prev - 1 : (prev = 1)));
-    onChangeCount(productId);
+    setCount((prev) => {
+      let _count = prev > 1 ? prev - 1 : (prev = 1);
+      onChangeCount(productId, _count);
+      return _count;
+    });
   };
-
- 
 
   // removeItem from cart
   const removeItem = (product) => {
