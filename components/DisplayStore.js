@@ -20,6 +20,7 @@ export default function DisplayStore({pages}) {
                     src={img}
                     fill
                     className="w-full h-full max-sm:object-cover"
+                    alt=""
                     />
                 </div>
                 <p className='uppercase'>{name}</p>

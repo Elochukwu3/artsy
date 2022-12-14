@@ -50,10 +50,10 @@ export  function CartSlider() {
         <div className='text-[32px] font-medium'>Explore more from this collection</div>
         <div className='grid grid-cols-2 gap-4'>
            <p className='border border-gray-400 w-auto h-auto grid items-center place-center py-5 px-4 rounded-full'>
-           <Image src={'/icon/arrow-up.png'} width="20" height={"10"} className="-rotate-90"/>
+           <Image src={'/icon/arrow-up.png'} width="20" height={"10"} className="-rotate-90" alt=""/>
            </p>
             <p className='border border-gray-400 w-auto h-auto grid items-center place-center py-5 px-4 rounded-full' onClick={nextSlider}>
-            <Image src={'/icon/arrow-up.png'} width="20" height={"10"} className="rotate-90"/>
+            <Image src={'/icon/arrow-up.png'} width="20" height={"10"} className="rotate-90" alt=""/>
             </p>
         </div>
         </section>

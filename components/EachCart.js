@@ -42,7 +42,7 @@ export default function EachCart({
           onClick={() => removeItem(items)}
         >
           
-          <Image src="/featured-img/close.png" width={"18"} height="10"/>
+          <Image src="/featured-img/close.png" width={"18"} height="10" alt=""/>
         </p>
         <p>${count * price}.00</p>
       </div>

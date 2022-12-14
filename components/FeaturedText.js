@@ -16,19 +16,19 @@ export default function FeaturedText({headerText}) {
       <div className="flex justify-between w-full items-center ">
         <div className="flex items-center flex-1">
           <span>
-            <img src="./featured-img/prof.png" />
+            <img src="./featured-img/prof.png" alt=""/>
           </span>
           <span className="-ml-4">
-            <img src="./featured-img/prof-two.png" />
+            <img src="./featured-img/prof-two.png" alt=""/>
           </span>
           <span className="-ml-4">
-            <img src="./featured-img/prof-three.png" />
+            <img src="./featured-img/prof-three.png" alt=""/>
           </span>
           <span className="-ml-4">
-            <img src="./featured-img/prof-four.png" />
+            <img src="./featured-img/prof-four.png" alt=""/>
           </span>
           <span className="-ml-4">
-            <img src="./featured-img/prof-five.png" />
+            <img src="./featured-img/prof-five.png" alt=""/>
           </span>
        
           <div className="pl-5 text-xl font-semibold">
@@ -38,7 +38,7 @@ export default function FeaturedText({headerText}) {
         
         <div className="pr-10 max-md:pr-0">
           <p className="px-2 border border-[grey] w-10 h-10 flex items-center justify-center rounded-full">
-            <img src="./featured-img/arrow.png" className="w-11/12" />
+            <img src="./featured-img/arrow.png" className="w-11/12" alt=""/>
           </p>
         </div>
       </div>

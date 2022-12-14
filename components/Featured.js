@@ -64,7 +64,7 @@ function FeaturedImage({ each_image, headerText }) {
        
       </h2>
         <p className="px-2 border border-[grey] w-10 h-10 flex items-center justify-center rounded-full">
-          <img src="./featured-img/arrow.png" className="w-11/12  max-[500px]:brightness-0  max-[500px]:invert" />
+          <img src="./featured-img/arrow.png" className="w-11/12  max-[500px]:brightness-0  max-[500px]:invert" alt=""/>
         </p>
       </div>
     </div>
