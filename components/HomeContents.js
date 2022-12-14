@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "../styles/Menu.module.css";
 import BeforeFooter from "./BeforeFooter";
 import Carousel from "./Carousel";
@@ -36,22 +37,20 @@ export default function HomeContents() {
       <section className="my-40 mx-20 max-[518px]:mx-0  " >
         <div className="text-black max-[518px]:px-3 font-semibold text-2xl border-y border-slate-300 py-10 flex justify-between items-center gap-3">
           <p>Explore marketplace</p>
-          <p>
-            <img
-              src="/featured-img/arrow-two.png"
-              alt="arrow-two"
-              className="w-10 max-[380px]:h-6 max-[380px]:w-8"
-            />
+          <p className="w-11 h-9 max-[380px]:h-6 max-[380px]:w-8 relative">
+            <Image 
+            fill
+            src="/featured-img/arrow-two.png"
+              alt="arrow-two"/>
           </p>
         </div>
         <div className="text-black font-semibold text-2xl border-b border-slate-300 py-10 flex justify-between items-center max-[518px]:px-3">
           <p>See auctions</p>
-          <p>
-            <img
-              src="/featured-img/arrow-two.png"
-              alt="arrow-two"
-              className="w-10 max-[380px]:h-6 max-[380px]:w-8"
-            />
+          <p className="w-11 h-9 max-[380px]:h-6 max-[380px]:w-8 relative">
+            <Image 
+            fill
+            src="/featured-img/arrow-two.png"
+              alt="arrow-two"/>
           </p>
         </div>
       </section>

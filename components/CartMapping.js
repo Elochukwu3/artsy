@@ -1,3 +1,4 @@
+import { useState } from "react";
 import EachCart from "./EachCart";
 
 export default function CartMapping({
@@ -6,11 +7,22 @@ export default function CartMapping({
   incrementCount,
   removeItem,
 }) {
+  const concatDuplicated = products.reduce((findArray, current) => {
+    const newObj = findArray.find((item) => {
+      return item.id === current.id;
+    });
+
+    if (newObj) {
+      return findArray;
+    }
+    return [...findArray, current];
+  }, []);
+
   return (
     <div>
       <ul>
         {typeof window !== "undefined" && products.length > 0
-          ? products.map((items) => {
+          ? concatDuplicated.map((items) => {
               return (
                 <li
                   key={items.name + items.id}

@@ -1,9 +1,17 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="w-full">
       <div className="w-[90%] mx-auto flex text-[22px] py-12 justify-around max-md:flex-wrap max-md:gap-6">
         <div className="my-auto shrink-0 max-[500px]:hidden">
-          <img src="/nav-img/ARTSY.png" alt="footer-Img" />
+          <Image
+            src="/nav-img/ARTSY.png"
+            alt="footer-Img"
+            width={"110"}
+            height={"100"}
+            objectFit={"contain"}
+          />
         </div>
         <ul className="space-y-5 capitalize shrink-0 max-md:space-y-1 max-[500px]:hidden">
           <li>Home</li>
@@ -21,20 +29,22 @@ export default function Footer() {
           <li className="hidden max-[500px]:block capitalize">Reach us</li>
           <li className="flex items-center gap-3">
             <span>
-              <img
+              <Image
                 src="/icon/email.png"
                 alt="location-Img"
-                className="w-[.9em]"
+                width={"20"}
+                height="10"
               />
             </span>
             <span>artsystudios@gmail.com</span>
           </li>
           <li className="flex items-center gap-3">
             <span>
-              <img
+               <Image
                 src="/icon/location.png"
                 alt="location-Img"
-                className="w-[.9em]"
+                width={"18"}
+                height="10"
               />
             </span>
             <span>Lagos, Nigeria.</span>

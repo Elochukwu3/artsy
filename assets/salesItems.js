@@ -1,6 +1,6 @@
 export const storedItems =[
     {
-        img:"../sales-img/img.png",
+        img:"/sales-img/img.png",
         price:100,
         count:1,
         id:"8",
@@ -9,7 +9,7 @@ export const storedItems =[
 
     },
     {
-        img:"../sales-img/img-ii.png",
+        img:"/sales-img/img-ii.png",
         price:100,
         count:1,
         id:"9",
@@ -18,7 +18,7 @@ export const storedItems =[
 
     },
     {
-        img:"../sales-img/img-6.png",
+        img:"/sales-img/img-6.png",
         price:100,
         count:1,
         id:"10",
@@ -27,7 +27,7 @@ export const storedItems =[
 
     },
     {
-        img:"../sales-img/img-one.png",
+        img:"/sales-img/img-one.png",
         price:100,
         count:1,
         id:"11",
@@ -35,7 +35,7 @@ export const storedItems =[
         name:"Alternating",
     },
     {
-        img:"../sales-img/img-two.png",
+        img:"/sales-img/img-two.png",
         price:100,
         count:1,
         id:"1",
@@ -43,7 +43,7 @@ export const storedItems =[
         name:"Rosemary'22",
     },
     {
-        img:"../sales-img/img-three.png",
+        img:"/sales-img/img-three.png",
         price:100,
         count:1,
         id:"2",
@@ -51,7 +51,7 @@ export const storedItems =[
         name:"Beverly",
     },
     {
-        img:"../sales-img/img-four.png",
+        img:"/sales-img/img-four.png",
         price:100,
         count:1,
         id:"3",
@@ -59,7 +59,7 @@ export const storedItems =[
         name:"Luois",
     },
     {
-        img:"../sales-img/img-five.png",
+        img:"/sales-img/img-five.png",
         price:100,
         count:1,
         id:"4",
@@ -67,7 +67,7 @@ export const storedItems =[
         name:"Vuit",
     },
     {
-        img:"../sales-img/img-six.png",
+        img:"/sales-img/img-six.png",
         price:100,
         count:1,
         id:"5",
@@ -75,7 +75,7 @@ export const storedItems =[
         name:"Robin",
     },
     {
-        img:"../sales-img/img-8.png",
+        img:"/sales-img/img-8.png",
         price:100,
         count:1,
         id:"6",
@@ -83,7 +83,7 @@ export const storedItems =[
         name:"Kalaval",
     },
     {
-        img:"../sales-img/img-10.png",
+        img:"/sales-img/img-10.png",
         price:100,
         count:1,
         id:"7",

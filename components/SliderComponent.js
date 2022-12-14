@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import sliderItems from "../assets/slideObjects";
 
@@ -47,10 +48,11 @@ function EachSlider({ counter }) {
               return (
                 <li
                   key={alt}
-                  className="w-[90%] shrink-0 p-2"
+                  className="w-[90%] shrink-0 p-2  h-auto"
                   style={styleSlider()}
                 >
                   <img src={img} alt={alt} />
+                  {/* <Image/> */}
                 </li>
               );
             })

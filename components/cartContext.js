@@ -1,10 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-
 const CartContextProvider = createContext();
 
 const initialStorage = () => {
   if (typeof window !== "undefined") {
-    const localData = localStorage.getItem("key");
+    const localData = localStorage.getItem("storedItems");
     return localData ? JSON.parse(localData) : [];
   }
 };
@@ -13,7 +12,18 @@ export function CartContextCreator({ children }) {
   const [products, setProducts] = useState(initialStorage);
 
   useEffect(() => {
-    localStorage.setItem("key", JSON.stringify(products));
+    const concatDuplicated = [...products].reduce((findArray, current) => {
+      const newObj = findArray.find((item) => {
+        return item.id === current.id;
+      });
+
+      if (newObj) {
+        return findArray;
+      }
+      return [...findArray, current];
+    }, []);
+
+    localStorage.setItem("storedItems", JSON.stringify(concatDuplicated))
   }, [products]);
 
   const [count, setCount] = useState(1); //count: this shows the qty of items added to the cart
@@ -22,7 +32,9 @@ export function CartContextCreator({ children }) {
     const newItems = {
       ...items,
       count: 1,
+      // id: Math.floor(Math.random() * 20000)
     };
+
     setProducts([...products, newItems]);
   };
 
@@ -40,8 +52,9 @@ export function CartContextCreator({ children }) {
   }
 
   //   increase count(qty)
-  const incrementCount = (productId) => {
+  const incrementCount = (e, productId) => {
     setCount((prev) => {
+      prev = Number(e.target.previousElementSibling.textContent);
       let _count = prev + 1;
       onChangeCount(productId, _count);
       return _count;
@@ -49,8 +62,9 @@ export function CartContextCreator({ children }) {
   };
 
   //decrease count(qty)
-  const decrementCount = (productId) => {
+  const decrementCount = (e, productId) => {
     setCount((prev) => {
+      prev = Number(e.target.nextElementSibling.textContent);
       let _count = prev > 1 ? prev - 1 : (prev = 1);
       onChangeCount(productId, _count);
       return _count;

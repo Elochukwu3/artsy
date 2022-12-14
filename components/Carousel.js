@@ -1,5 +1,6 @@
 import sliderItems from "../assets/slideObjects";
 import { useState} from "react";
+import Image from "next/image";
 
 const initials = {
   current: 0,
@@ -86,10 +87,13 @@ export default function Carousel() {
               return (
                 <li
                   key={alt + index}
-                  className="w-[33.33%] border-2 border-[grey] shrink-0 p-10"
+                  className="w-[33.33%] border-2 border-[grey] shrink-0 p-10 relative"
                 >
-                  <img src={img} alt={alt} />
-                  {/* {img} */}
+                <Image
+                fill
+                src={img}
+                alt={alt} 
+                />
                 </li>
               );
             })}

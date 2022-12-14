@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cartUseContext } from "./cartContext";
 import Image from "next/image";
 import Link from "next/link";
 const MENU_HOVER =
@@ -11,18 +12,31 @@ export default function NaBar() {
   const closeNav = () => {
     setOpenNav(false);
   };
+  const { products } = cartUseContext();
 
   return (
     <div className="h-auto px-20 max-lg:px-5 relative max-sm:px-3">
       <nav className="flex justify-between py-10 items-center bg-white">
         <section
-          className="bar hidden max-md:block cursor-pointer"
+          className="bar hidden max-md:block cursor-pointer px-2"
           onClick={collapseNav}
         >
-          <img src="featured-img/bar.png" alt="nav-img" className="w-8" />
+          <Image
+            src="/featured-img/bar.png"
+            alt="bar-img"
+            width={"32"}
+            height="110"
+            objectFit="contain"
+          />
         </section>
         <section className="logo">
-          <img src="nav-img/ARTSY.png" alt="nav-img" />
+          <Image
+            src="/nav-img/ARTSY.png"
+            alt="nav-img"
+            width={"110"}
+            height="110"
+            objectFit="contain"
+          />
         </section>
         <section
           className={
@@ -34,10 +48,24 @@ export default function NaBar() {
           <ul className="flex gap-10 menu max-md:flex-col max-md:pt-20">
             <li className=" hidden max-md:flex justify-between">
               <section className="logo">
-                <img src="nav-img/ARTSY.png" alt="nav-img" />
+                <Image
+                  src="/nav-img/ARTSY.png"
+                  alt="nav-img"
+                  width={"110"}
+                  height="110"
+                  objectFit="contain"
+                />
               </section>
-              <div className="cursor-pointer" onClick={closeNav}>
-                <img src="../featured-img/close.png" alt="nav-img" />
+              <div
+                className="cursor-pointer border border-gray-100 p-1"
+                onClick={closeNav}
+              >
+                <Image
+                  src="/featured-img/close.png"
+                  alt="nav-img"
+                  width={"20"}
+                  height="10"
+                />
               </div>
             </li>
             <li className={MENU_HOVER} onClick={closeNav}>
@@ -67,7 +95,7 @@ export default function NaBar() {
                   />
                 </Link>
               </li>
-              <li>
+              <li className="relative pr-1">
                 <Link href={"/cart"}>
                   {" "}
                   <Image
@@ -77,6 +105,23 @@ export default function NaBar() {
                     alt={"cart-img"}
                   />
                 </Link>
+
+                {products
+                  ? products.length > 0 && (
+                      <span
+                        className="absolute  -
+                    -right-3 -top-4 bg-red-600 w-4 h-4 p-3 rounded-full text-[12px] 
+                    flex justify-center items-center text-white font-semibold
+                    max-md:scale-75
+                    max-md:right-0
+                    transition-1
+                    duration-300 ease-in-out
+                    "
+                      >
+                        {products.length}
+                      </span>
+                    )
+                  : ""}
               </li>
               <li className="menu max-md:hidden">
                 <Link href={"/notify"}>

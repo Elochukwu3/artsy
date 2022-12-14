@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 
 export default function FilterIcons() {
@@ -18,11 +19,18 @@ export default function FilterIcons() {
       <div className="space-y-2">
         <div className=" w-fit grid grid-cols-2 items-end">
           <span>
-            <img src="../icon/filter.png" alt="filter-img" className="scale-75"/>
+            <Image
+              src="/icon/filter.png"
+              alt="filter-img"
+              width={"30"}
+              height="25"
+              className="scale-75"
+            />
           </span>
-          <span className="capitalize font-semibold text-[30px]">Filter</span>
+          <span className="capitalize font-semibold text-[26px]">Filter</span>
         </div>
-        <img src="../icon/line.png" alt="line-img" />
+
+        <Image src="/icon/line.png" width={"220"} height="7" alt="line-img" />
       </div>
       <IconHeader
         caption={"By category"}
@@ -126,7 +134,9 @@ export default function FilterIcons() {
         stateId={"artist"}
       />
       <ul
-        className={artist ? "space-y-2 capitalize h-full w-full" : "h-0 overflow-hidden"}
+        className={
+          artist ? "space-y-2 capitalize h-full w-full" : "h-0 overflow-hidden"
+        }
       >
         <li className="cursor-pointer">Mikel Angelo</li>
         <li className="cursor-pointer">Augustus VCF</li>
@@ -145,9 +155,11 @@ function IconHeader({ state, stateId, caption, dropDown }) {
       id={stateId}
     >
       <h2 className="text-[23px] font-semibold cursor-pointer">{caption}</h2>
-      <img
-        src="../icon/arrow-up.png"
+      <Image
+        src="/icon/arrow-up.png"
         alt="arrow-img"
+        width={"18"}
+        height={"10"}
         className={
           !state ? "rotate-180 cursor-pointer" : "rotate-0 cursor-pointer"
         }
