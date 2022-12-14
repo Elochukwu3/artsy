@@ -45,7 +45,7 @@ export default function Phiomena({ pages }) {
     addToCart(items);
   };
   return (
-    <sectiona>
+    <section>
       <div>
         {pages.map((items) => {
           const { name, img, id } = items;
@@ -118,6 +118,7 @@ export default function Phiomena({ pages }) {
                           height="30"
                           objectFit="contain"
                           className=" my-auto" 
+                          alt="arrows"
                           />
                         </p>
                         </button>
@@ -150,6 +151,6 @@ export default function Phiomena({ pages }) {
         })}
       </div>
       <CartSlider />
-    </sectiona>
+    </section>
   );
 }

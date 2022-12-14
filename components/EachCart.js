@@ -16,19 +16,19 @@ export default function EachCart({
         </div>
        
         <ul className="block h-full py-4 space-y-5 text-[18px] capitalize">
-          <li className="text-black font-semibold">Philome</li>
-          <li className="text-[#9ca3af]">Clearhh</li>
+          <li className="text-black font-semibold">{name}</li>
+          <li className="text-[#9ca3af]">Clearh</li>
           <li className="text-[#9ca3af]">size: 200ft</li>
           <li className="flex gap-4 font-semibold">
             <span
-              className="cursor-pointer"
+              className="cursor-pointer text-[1.4em]"
               onClick={(e) => decrementCount(e, id)}
             >
               -
             </span>
-            <span className="cursor-pointer">{count}</span>
+            <span className="cursor-pointer text-[1.4em]">{count}</span>
             <span
-              className="cursor-pointer"
+              className="cursor-pointer text-[1.4em]"
               onClick={(e) => incrementCount(e, id)}
             >
               +
