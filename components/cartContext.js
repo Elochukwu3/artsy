@@ -98,6 +98,5 @@ export function CartContextCreator({ children }) {
     </CartContextProvider.Provider>
   );
 }
-export const cartUseContext = () => {
-  return useContext(CartContextProvider);
-};
+export const CartUseContext = () => {return useContext(CartContextProvider)}
+ 

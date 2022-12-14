@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { cartUseContext } from "../../../components/cartContext";
+import { CartUseContext } from "../../../components/cartContext";
 import { useRouter } from "next/router";
 import { storedItems } from "../../../assets/salesItems";
 import { CartSlider } from "../../../components/CartSlider";
@@ -39,7 +39,7 @@ export default function Phiomena({ pages }) {
     router.back(-1);
   };
 
-  const { addToCart } = cartUseContext();
+  const { addToCart } = CartUseContext();
   const handleCart = (items) => {
     router.push("/cart");
     addToCart(items);

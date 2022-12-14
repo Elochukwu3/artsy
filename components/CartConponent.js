@@ -1,10 +1,10 @@
-import { cartUseContext } from "./cartContext";
+import { CartUseContext } from "./cartContext";
 import CartMapping from "./CartMapping";
 
 
 export default function CartConponent() {
   const { products, decrementCount, incrementCount, removeItem } =
-    cartUseContext();
+    CartUseContext();
 
   return (
     <section className="flex justify-center">
