@@ -42,7 +42,7 @@ function Index({pages}) {
               <aside className="w-[230px] max-lg:w-[23%] max-md:hidden">
                 <FilterIcons />
               </aside>
-              <div className="flex-1 px-2 flex gap-4 flex-wrap justify-around max-lg:justify-center">
+              <div className="flex-1 px-2 flex gap-4 flex-wrap justify-around max-lg:justify-center  h-[120vh] overflow-y-scroll">
                 <DisplayStore pages={pages}/>
               </div>
             </section>
