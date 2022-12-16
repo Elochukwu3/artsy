@@ -1,7 +1,8 @@
 
 
 ## Getting Started
-First, run the package installation command.
+git clone https://github.com/Elochukwu3/artsy
+then, run the package installation command.
 npm install
 
 Second, run the development server:
