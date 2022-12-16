@@ -2,18 +2,25 @@ import { useState } from "react";
 import { useCartContext } from "./cart-ft/cartContext";
 import Image from "next/image";
 import Link from "next/link";
-const MENU_HOVER =
-  "text-2xl cursor-pointer font-normal after:content-[''] after:duration-300 after:h-1 after:block after:w-0 after:bg-slate-400 hover:after:w-full max-md:after:hidden";
+
 export default function NaBar() {
   const [openNav, setOpenNav] = useState(false);
+  const [anim, setAnim] = useState("opacity-1 translate-y-1 py-[10px]");
   const collapseNav = () => {
     setOpenNav(!openNav);
+ if (openNav) {
+  setAnim("opacity-1 translate-y-1 py-[13px] transition-transform delay-150 duration-100 transition-opacity transitiom-100");
+ }
   };
   const closeNav = () => {
     setOpenNav(false);
+   if (openNav) {
+    setAnim("opacity-0 translate-y-[30px] ");
+   }
   };
   const { products } = useCartContext();
-
+  const MENU_HOVER =
+    "text-2xl cursor-pointer font-normal after:content-[''] after:duration-300 after:h-1 after:block after:w-0 after:bg-slate-400 hover:after:w-full max-md:after:hidden";
   return (
     <div className="h-auto px-20 max-lg:px-5 relative max-sm:px-3">
       <nav className="flex justify-between py-10 items-center bg-white">
@@ -41,11 +48,11 @@ export default function NaBar() {
         <section
           className={
             !openNav
-              ? "menu max-md:hidden transition duration-300 ease-in"
-              : "transition max-md:fixed overflow-y-hidden max-md:inset-0 menu max-md:bg-white menu max-md:z-50 max-md:px-10 duration-300 ease-out"
+              ? "menu max-md:hidden transition"
+              : " opacity-1 max-md:fixed overflow-y-hidden max-md:inset-0 menu max-md:bg-white menu max-md:z-50 max-md:px-10"
           }
         >
-          <ul className="flex gap-10 menu max-md:flex-col max-md:pt-20">
+          <ul className="flex gap-4 menu max-md:flex-col max-md:pt-20 navin">
             <li className=" hidden max-md:flex justify-between">
               <section className="logo">
                 <Image
@@ -68,16 +75,16 @@ export default function NaBar() {
                 />
               </div>
             </li>
-            <li className={MENU_HOVER} onClick={closeNav}>
+            <li className={`${anim} ${MENU_HOVER}`} onClick={closeNav}>
               <Link href={"/"}>Home</Link>
             </li>
-            <li className={MENU_HOVER} onClick={closeNav}>
+            <li className={`${anim} ${MENU_HOVER}`} onClick={closeNav}>
               <Link href={"/market_place/editorials"}>MarketPlace</Link>
             </li>
-            <li className={MENU_HOVER} onClick={closeNav}>
+            <li className={`${anim} ${MENU_HOVER}`} onClick={closeNav}>
               <Link href={"/auction"}>Auction</Link>
             </li>
-            <li className={MENU_HOVER} onClick={closeNav}>
+            <li className={`${anim} ${MENU_HOVER}`} onClick={closeNav}>
               <Link href={"/drop"}>Drop</Link>
             </li>
           </ul>

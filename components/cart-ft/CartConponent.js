@@ -1,9 +1,13 @@
 import { useCartContext } from "./cartContext";
 import CartMapping from "./CartMapping";
+import ShoppingDetails from "./ShoppingDetails";
+import { useState } from "react";
+import ShoppingBtn from "./ShoppingBtn";
 
 export default function CartConponent() {
   const { products, decrementCount, incrementCount, removeItem } =
     useCartContext();
+  const [slideView, setSlideView] = useState(false);
 
   return (
     <section className="flex justify-center">
@@ -11,22 +15,36 @@ export default function CartConponent() {
         <div>
           {products.length === 0 && <p>No Cart Item, Hey add some items</p>}
         </div>
-        <div className="flex justify-center">
-          <div className="grid grid-cols-3 space-x-10 text-xl capitalize">
-            <button className="border-none bg-none">Shopping Cart</button>
-            <button className="border-none bg-none">Shopping details</button>
-            <button className="border-none bg-none">Payment details</button>
-          </div>
-        </div>
+        <ShoppingBtn setSlideView={setSlideView} />
         <div>
-          <div>
-            <div></div>
-            <div>
+          <div
+            className={
+              slideView ? "grid grid-cols-2 space-x-10" : "grid grid-cols-1"
+            }
+          >
+            <div
+              className={
+                slideView
+                  ? "w-full block transition  duration-1000 opacity-1 h-auto"
+                  : " duration-[.6s] overflow-x-hidden -translate-x-[2000px] opacity-1 h-0"
+              }
+            >
+              <ShoppingDetails />
+            </div>
+            <div
+              className={
+                slideView
+                  ? "w-full duration-1000 "
+                  : "w-full duration-1000  translate-x-0"
+              }
+            >
               <CartMapping
                 products={products}
                 decrementCount={decrementCount}
                 incrementCount={incrementCount}
                 removeItem={removeItem}
+                setSlideView= {setSlideView}
+                slideView={slideView}
               />
             </div>
           </div>
