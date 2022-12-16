@@ -1,5 +1,6 @@
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
-export default function FeaturedText({headerText}) {
+export default function FeaturedText({headerText, direct}) {
   return (
     <div className="flex flex-col justify-between gap-4 items-start  min-h-56 py-0 pr-6 max-lg:pr-1 max-md:items-center">
       <h2 className={`text-4xl ${styles.featuredText} capitalize max-[500px]:hidden`}>
@@ -36,10 +37,12 @@ export default function FeaturedText({headerText}) {
         </div>
         </div>
         
-        <div className="pr-10 max-md:pr-0">
-          <p className="px-2 border border-[grey] w-10 h-10 flex items-center justify-center rounded-full">
+        <div className="pr-10 max-md:pr-0 max-sm:hidden">
+         <Link href={direct}>
+         <p className="px-2 border border-[grey] w-10 h-10 flex items-center justify-center rounded-full">
             <img src="./featured-img/arrow.png" className="w-11/12" alt=""/>
           </p>
+         </Link>
         </div>
       </div>
     </div>

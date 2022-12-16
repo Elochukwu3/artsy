@@ -28,6 +28,7 @@ export const getStaticProps = (context) => {
     props: { pages: filterdname },
   };
 };
+
 export default function Phiomena({ pages }) {
   const [heart, setHeart] = useState(false);
   const hanleHeartChange = () => {
@@ -36,7 +37,7 @@ export default function Phiomena({ pages }) {
 
   const router = useRouter();
   const redirectPage = () => {
-    router.back(-1);
+    router.push("/market_place/editorials");
   };
 
   const { addToCart } = CartUseContext();
@@ -52,44 +53,43 @@ export default function Phiomena({ pages }) {
           return (
             <div key={id} className="w-full">
               <div className="w-full flex justify-center my-12">
-                <div className="w-[80%] text-[24px] text-[#BCB7B7]">
+                <div className="w-[80%] text-[24px] text-[#BCB7B7] max-sm:w-[95%] max-md:text-[19px]">
                   <span className="cursor-pointer">Home/ Marketplace/</span>
                   <span className="cursor-pointer" onClick={redirectPage}>
                     Editorials/
                   </span>
-                  <span className="cursor-pointer text-black">
-                    Philomena ‘22
-                  </span>
+                  <span className="cursor-pointer text-black">{name}</span>
                 </div>
               </div>
               <section className="w-full flex justify-center">
                 <div className="w-[85%] bg-white flex h-[850px] border border-gray-500 max-md:block max-md:w-[90%] max-md:h-fit">
                   <div className="basis-[50%] h-full border-r border-gray-500  py-6 px-4 relative max-md:basis-full max-md:h-[44vh]">
                     <Image
-                    fill
-                    src={img}
-                    layout="fill"
-                     className="w-[100%] h-[100%] object-cover"
-                     alt={img + id}
+                      fill
+                      src={img}
+                      layout="fill"
+                      className="w-[100%] h-[100%] object-cover"
+                      alt={img + id}
                     />
                   </div>
                   <ul className="flex-1 w-[50%] mg-0 max-md:w-[100%]">
                     <li className="flex px-4 py-6 items-center justify-between border-b border-gray-500">
-                      <h1 className="font-bold text-[34px] max-md:text-[27px]">
-                        Boolean Egyptian
+                      <h1 className="font-bold text-[34px] max-md:text-[25px]">
+                        {name}
                       </h1>
                       <div className="flex items-center gap-3">
-                      
                         <Image
-                        src={"/icon/pyramid.jpg"}
-                        alt="pyramid"
-                        width={"20"}
-                        height="20"
+                          src={"/icon/pyramid.jpg"}
+                          alt="pyramid"
+                          width={"20"}
+                          height="20"
                         />
-                        <span className="text-[34px] font-medium max-md:text-[25px]">0.09</span>
+                        <span className="text-[34px] font-medium max-md:text-[25px]">
+                          0.09
+                        </span>
                       </div>
                     </li>
-                    <li className="px-4 py-10 space-y-5 text-[24px] font-normal border-b border-gray-500 max-md:space-y-3 max-md:py-5">
+                    <li className="px-4 py-10 space-y-5 text-[24px] font-normal border-b border-gray-500 max-md:space-y-2 max-md:py-4">
                       <p>
                         <span>Creator:</span>
                         <span className="text-[#4693ED] px-2">Ali Dawa</span>
@@ -97,7 +97,7 @@ export default function Phiomena({ pages }) {
                       <p>Made in Italy</p>
                       <p>
                         <span className="font-Medium">Total views:</span>
-                        <span>1.7K views</span>
+                        <span> 1.7K views</span>
                       </p>
                       <p className="space-x-4 text-[30px] font-semibold ">
                         <span className="cursor-pointer">-</span>
@@ -110,17 +110,16 @@ export default function Phiomena({ pages }) {
                           onClick={() => handleCart(items)}
                         >
                           <p className="block">Add to cart </p>
-                        <p>
-                          
-                        <Image
-                          src="/icon/sm-arrow.png"
-                          width={"30"}
-                          height="30"
-                          objectFit="contain"
-                          className=" my-auto" 
-                          alt="arrows"
-                          />
-                        </p>
+                          <p>
+                            <Image
+                              src="/icon/sm-arrow.png"
+                              width={"30"}
+                              height="30"
+                              objectFit="contain"
+                              className=" my-auto"
+                              alt="arrows"
+                            />
+                          </p>
                         </button>
                         <div
                           onClick={hanleHeartChange}
