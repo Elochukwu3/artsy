@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CartUseContext } from "./cartContext";
+import { useCartContext} from "./cartContext";
 import Image from "next/image";
 import Link from "next/link";
 const MENU_HOVER =
@@ -12,7 +12,7 @@ export default function NaBar() {
   const closeNav = () => {
     setOpenNav(false);
   };
-  const { products } = CartUseContext();
+  const { products } = useCartContext();
 
   return (
     <div className="h-auto px-20 max-lg:px-5 relative max-sm:px-3">

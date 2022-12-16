@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Menu.module.css";
-import BeforeFooter from "./BeforeFooter";
-import Carousel from "./Carousel";
-import Featured from "./Featured";
-import HomeBanner from "./HomeBanner";
+import BeforeFooter from "./home/BeforeFooter";
+import Featured from "./home/Featured";
+import HomeBanner from "./home/HomeBanner";
 import NewsLetter from "./NewsLetter";
-import SliderComponent from "./SliderComponent";
+import SliderComponent from "./home/SliderComponent";
 
 export default function HomeContents() {
   return (
@@ -28,7 +27,7 @@ export default function HomeContents() {
         </div>
       </div>
       <div>
-        {/* <Carousel/> */}
+     
         <SliderComponent />
       </div>
       <div>

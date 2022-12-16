@@ -1,10 +1,5 @@
-
-import dynamic from "next/dynamic";
-
-const CartItem = dynamic(()=> import('../components/CartConponent'), {ssr: false});
+import CartConponent from "../components/CartConponent";
 
 export default function Cart() {
-  return (
-   <CartItem/>
-  );
+  return <CartConponent />;
 }

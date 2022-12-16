@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { CartUseContext } from "../../../components/cartContext";
+import {useCartContext } from "../../../cart-ft/components/cartContext";
 import { useRouter } from "next/router";
 import { storedItems } from "../../../assets/salesItems";
-import { CartSlider } from "../../../components/CartSlider";
+import { CartSlider } from "../../../market/components/CartSlider";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 
 export const getStaticPaths = () => {
   const paths = storedItems.map((items) => {
@@ -40,10 +41,11 @@ export default function Phiomena({ pages }) {
     router.push("/market_place/editorials");
   };
 
-  const { addToCart } = CartUseContext();
+  const { addToCart } = useCartContext();
   const handleCart = (items) => {
     router.push("/cart");
     addToCart(items);
+    toast(`${items.name} added to cart`)
   };
   return (
     <section>

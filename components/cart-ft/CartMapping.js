@@ -1,5 +1,4 @@
-
-import EachCart from "./EachCart";
+import EachCart from "./cart-ft/EachCart";
 
 export default function CartMapping({
   products,
@@ -7,22 +6,22 @@ export default function CartMapping({
   incrementCount,
   removeItem,
 }) {
-  const concatDuplicated = products.reduce((findArray, current) => {
-    const newObj = findArray.find((item) => {
-      return item.id === current.id;
-    });
+  // const concatDuplicated = products.reduce((findArray, current) => {
+  //   const newObj = findArray.find((item) => {
+  //     return item.id === current.id;
+  //   });
 
-    if (newObj) {
-      return findArray;
-    }
-    return [...findArray, current];
-  }, []);
+  //   if (newObj) {
+  //     return findArray;
+  //   }
+  //   return [...findArray, current];
+  // }, []);
 
   return (
     <div>
       <ul>
-        {typeof window !== "undefined" && products.length > 0
-          ? concatDuplicated.map((items) => {
+        {products.length > 0
+          ? products.map((items) => {
               return (
                 <li
                   key={items.name + items.id}

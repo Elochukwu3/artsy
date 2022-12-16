@@ -1,5 +1,5 @@
-import DisplayStore from "../../components/DisplayStore";
-import FilterIcons from "../../components/FilterIcons";
+import DisplayStore from "../../market/components/DisplayStore";
+import FilterIcons from "../market/components/FilterIcons";
 import { storedItems } from '../../assets/salesItems';
 
 export const getStaticProps = async() =>{

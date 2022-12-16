@@ -1,6 +1,6 @@
-import Image from "next/image";
 import React from "react";
-
+import Image from "next/image";
+import { formatOperand } from "../assets/numberConvert.js"
 export default function EachCart({
   items,
   decrementCount,
@@ -8,7 +8,9 @@ export default function EachCart({
   removeItem,
 }) {
   const { name, id, img, price, count } = items;
+  let total =` ${count * price}.00`
   return (
+    
     <>
       <div className="flex h-[200px]  gap-4 max-sm:justify-between">
         <div className="block h-full py-4 w-[185px] relative" >
@@ -44,7 +46,7 @@ export default function EachCart({
           
           <Image src="/featured-img/close.png" width={"18"} height="10" alt=""/>
         </p>
-        <p>${count * price}.00</p>
+        <p>${formatOperand(total)}</p>
       </div>
     </>
   );
