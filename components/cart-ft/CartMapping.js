@@ -1,4 +1,4 @@
-import EachCart from "./cart-ft/EachCart";
+import EachCart from "./EachCart";
 
 export default function CartMapping({
   products,

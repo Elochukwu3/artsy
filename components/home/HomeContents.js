@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/Menu.module.css";
-import BeforeFooter from "./home/BeforeFooter";
-import Featured from "./home/Featured";
-import HomeBanner from "./home/HomeBanner";
+import styles from "../../styles/Menu.module.css";
+import BeforeFooter from "./BeforeFooter";
+import Featured from "./Featured";
+import HomeBanner from "./HomeBanner";
 import NewsLetter from "./NewsLetter";
-import SliderComponent from "./home/SliderComponent";
+import SliderComponent from "./SliderComponent";
+
 
 export default function HomeContents() {
   return (

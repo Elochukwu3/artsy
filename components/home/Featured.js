@@ -8,9 +8,9 @@ export default function Featured() {
       <section>
         <div className="w-full my-7">
           <h2 className="py-5 font-bold text-2xl">Featured products</h2>
-          <hr className=" border-[grey] w-4/5" />
+          <hr className=" border-[grey] w-4/5 max-[500px]:w-[100%]" />
         </div>
-        <div className="flex w-full items-center gap-6 my-10 max-lg:gap-4 max-md:flex-col  max-md:items-center  max-md:w-full relative">
+        <div className="flex w-full items-center gap-6 my-10 max-lg:gap-4 max-md:flex-col  max-md:items-center  max-md:w-full relative z-index-40">
           <>
             <FeaturedImage
               each_image={"/featured-img/feat-one.png"}
@@ -74,12 +74,13 @@ export default function Featured() {
 
 function FeaturedImage({ each_image, headerText, direct }) {
   return (
-    <div className="flex-1 relative group max-[500px]:pointer-events-none">
+    <div className="flex-1 relative group max-[500px]:hover-none">
       <img src={each_image} alt="featured_one" className="w-11/12 h-56" />
       <div
         className="absolute
        inset-0 flex items-center justify-center w-11/12 gap-5
         bg-[#00000080] duration-500  scale-0 origin-center 
+        max-[500px]:w-[full] 
         group-hover:scale-100  max-[500px]:scale-100  max-[500px]:flex-col  max-[500px]:justify-start max-[500px]:space-y-8"
       >
         <p className="text-white  max-[500px]:hidden">View Products</p>
@@ -89,11 +90,11 @@ function FeaturedImage({ each_image, headerText, direct }) {
           {headerText}
         </h2>
         <Link href={direct}>
-          <p className="px-2 border border-[grey] w-10 h-10 flex items-center justify-center rounded-full">
+          <p className="px-2 border border-[grey] w-10 h-10 flex items-center justify-center rounded-full cursor-pointer">
             <img
               src="./featured-img/arrow.png"
               className="w-11/12  max-[500px]:brightness-0  max-[500px]:invert"
-              alt=""
+              alt="icon"
             />
           </p>
         </Link>

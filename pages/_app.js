@@ -1,5 +1,5 @@
-import { CartContextCreator } from "../cart-ft/components/cartContext";
 
+import { CartContextCreator } from "../components/cart-ft/cartContext";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 import { Toaster } from "react-hot-toast";

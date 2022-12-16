@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCartContext} from "./cartContext";
+import { useCartContext } from "./cart-ft/cartContext";
 import Image from "next/image";
 import Link from "next/link";
 const MENU_HOVER =

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import {useCartContext } from "../../../cart-ft/components/cartContext";
+import { useCartContext } from "../../../components/cart-ft/cartContext";
 import { useRouter } from "next/router";
 import { storedItems } from "../../../assets/salesItems";
-import { CartSlider } from "../../../market/components/CartSlider";
+import { CartSlider } from "../../../components/market/CartSlider";
 import Image from "next/image";
 import { toast } from "react-hot-toast";
 
@@ -45,7 +45,7 @@ export default function Phiomena({ pages }) {
   const handleCart = (items) => {
     router.push("/cart");
     addToCart(items);
-    toast(`${items.name} added to cart`)
+    toast(`${items.name} added to cart`);
   };
   return (
     <section>
