@@ -14,7 +14,7 @@ export default function NaBar() {
   };
   const closeNav = () => {
     setOpenNav(false);
-   if (openNav) {
+   if (!openNav) {
     setAnim("opacity-0 translate-y-[30px] ");
    }
   };

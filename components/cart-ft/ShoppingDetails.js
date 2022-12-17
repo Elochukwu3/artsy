@@ -2,8 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
-function ShoppingDetails({products}) {
-
+function ShoppingDetails({ products }) {
   return (
     <div>
       <Formik
@@ -42,8 +41,6 @@ function ShoppingDetails({products}) {
 
             setSubmitting(false);
           }, 400);
-
-         
         }}
       >
         {({ isSubmitting }) => (
@@ -120,15 +117,21 @@ function ShoppingDetails({products}) {
           </Form>
         )}
       </Formik>
-        <p onClick={()=>{
-           axios.post('api/checkout_sessions', {products})
-           .then(res=>{
-             console.log(res);
-             window.location = res.data.sessionURL 
-           }).catch(err=>{
-             console.log(err);
-           })
-        }}>Burronn</p>
+      <p
+        onClick={() => {
+          axios
+            .post("api/checkout_sessions", { products })
+            .then((res) => {
+              console.log(res);
+              window.location = res.data.sessionURL;
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }}
+      >
+        Burronn
+      </p>
     </div>
   );
 }
