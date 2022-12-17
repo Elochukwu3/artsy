@@ -29,7 +29,7 @@ export default function CartConponent() {
                   : " duration-[.6s] overflow-x-hidden -translate-x-[2000px] opacity-1 h-0"
               }
             >
-              <ShoppingDetails />
+              <ShoppingDetails products={products}/>
             </div>
             <div
               className={

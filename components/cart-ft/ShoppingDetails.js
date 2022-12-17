@@ -1,7 +1,9 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
 
-function ShoppingDetails() {
+function ShoppingDetails({products}) {
+
   return (
     <div>
       <Formik
@@ -12,7 +14,7 @@ function ShoppingDetails() {
           city: "",
           country: "",
           number: "",
-          postaal: "",
+          postal: "",
         }}
         validate={(values) => {
           const errors = {};
@@ -40,6 +42,8 @@ function ShoppingDetails() {
 
             setSubmitting(false);
           }, 400);
+
+         
         }}
       >
         {({ isSubmitting }) => (
@@ -77,7 +81,7 @@ function ShoppingDetails() {
             />
             <ErrorMessage name="city" component={"div"} />
             <div className="w-full grid grid-cols-2 gap-10">
-              <p className="w-full">
+              <div className="w-full">
                 <label>Country</label> <br />
                 <Field
                   type="text"
@@ -86,8 +90,8 @@ function ShoppingDetails() {
                   className="w-full px-4 h-12 outline-none rounded-[8px]"
                 />
                 <ErrorMessage name="country" component={"div"} />
-              </p>
-              <p className="w-full">
+              </div>
+              <div className="w-full">
                 <label>Postal</label> <br />
                 <Field
                   type="text"
@@ -96,7 +100,7 @@ function ShoppingDetails() {
                   className="w-full px-4 h-12 outline-none rounded-[8px]"
                 />
                 <ErrorMessage name="postal" component={"div"} />
-              </p>
+              </div>
             </div>
             <label>Phone Number</label> <br />
             <Field
@@ -116,6 +120,15 @@ function ShoppingDetails() {
           </Form>
         )}
       </Formik>
+        <p onClick={()=>{
+           axios.post('api/checkout_sessions', {products})
+           .then(res=>{
+             console.log(res);
+             window.location = res.data.sessionURL 
+           }).catch(err=>{
+             console.log(err);
+           })
+        }}>Burronn</p>
     </div>
   );
 }
