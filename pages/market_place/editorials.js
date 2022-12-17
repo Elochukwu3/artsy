@@ -1,20 +1,19 @@
-import DisplayStore from "../../components/DisplayStore";
-import FilterIcons from "../../components/FilterIcons";
-import { storedItems } from '../../assets/salesItems';
+import DisplayStore from "../../components/market/DisplayStore";
+import FilterIcons from "../../components/market/FilterIcons";
+import { storedItems } from "../../assets/salesItems";
+export const getStaticProps = async () => {
+  return {
+    props: { pages: storedItems },
+  };
+};
 
-export const getStaticProps = async() =>{
-    return{
-      props: {pages: storedItems}
-    }
-  }
-
-function Index({pages}) {
-  
+function Index({ pages }) {
   return (
     <div>
       <main>
         <section className="w-full flex justify-center">
           <div className="w-[90%] bg-white">
+            
             <header>
               <form className="flex justify-between w-full items-center ">
                 <div className="bg-[#f4f2f2] flex h-[2.5rem] items-center py-2 px-1 gap-1 shrink-0 max-md:hidden">
@@ -43,7 +42,7 @@ function Index({pages}) {
                 <FilterIcons />
               </aside>
               <div className="flex-1 px-2 flex gap-4 flex-wrap justify-around max-lg:justify-center  h-[120vh] overflow-y-scroll">
-                <DisplayStore pages={pages}/>
+                <DisplayStore pages={pages} />
               </div>
             </section>
           </div>

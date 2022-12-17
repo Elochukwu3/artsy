@@ -1,6 +1,5 @@
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import sliderItems from "../assets/slideObjects";
+import sliderItems from "../../assets/slideObjects";
 
 export default function SliderComponent() {
   return (

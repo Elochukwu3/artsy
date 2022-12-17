@@ -1,29 +1,21 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 const CartContextProvider = createContext();
 
-const initialStorage = () => {
-  if (typeof window !== "undefined") {
-    const localData = localStorage.getItem("storedItems");
-    return localData ? JSON.parse(localData) : [];
-  }
-};
+const initialStorage = [];
 
 export function CartContextCreator({ children }) {
   const [products, setProducts] = useState(initialStorage);
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("storedItems"));
+    if (storedData) {
+      setProducts(storedData);
+    }
+  }, []);
 
   useEffect(() => {
-    const concatDuplicated = [...products].reduce((findArray, current) => {
-      const newObj = findArray.find((item) => {
-        return item.id === current.id;
-      });
-
-      if (newObj) {
-        return findArray;
-      }
-      return [...findArray, current];
-    }, []);
-
-    localStorage.setItem("storedItems", JSON.stringify(concatDuplicated))
+    if (products !== initialStorage) {
+      localStorage.setItem("storedItems", JSON.stringify(products));
+    }
   }, [products]);
 
   const [count, setCount] = useState(1); //count: this shows the qty of items added to the cart
@@ -32,10 +24,19 @@ export function CartContextCreator({ children }) {
     const newItems = {
       ...items,
       count: 1,
-      // id: Math.floor(Math.random() * 20000)
     };
 
-    setProducts([...products, newItems]);
+    if (products.findIndex((match) => match.id === newItems.id) === -1) {
+      setProducts([...products, newItems]);
+    } else {
+      setProducts((oldState) => {
+        return oldState.map((item) => {
+          return item.id === newItems.id
+            ? { ...item, count: item.count + 1 }
+            : item;
+        });
+      });
+    }
   };
 
   function onChangeCount(productId, count) {
@@ -98,5 +99,6 @@ export function CartContextCreator({ children }) {
     </CartContextProvider.Provider>
   );
 }
-export const CartUseContext = () => {return useContext(CartContextProvider)}
- 
+export const useCartContext = () => {
+  return useContext(CartContextProvider);
+};

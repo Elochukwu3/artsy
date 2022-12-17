@@ -1,8 +1,8 @@
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 export default function FeaturedText({headerText, direct}) {
   return (
-    <div className="flex flex-col justify-between gap-4 items-start  min-h-56 py-0 pr-6 max-lg:pr-1 max-md:items-center">
+    <div className="flex flex-col justify-between gap-4 items-start  min-h-56 py-0 pr-6 max-lg:pr-1 max-md:items-center max-sm:text-center">
       <h2 className={`text-4xl ${styles.featuredText} capitalize max-[500px]:hidden`}>
         {headerText}
        
