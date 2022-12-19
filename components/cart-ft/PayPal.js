@@ -11,7 +11,7 @@ const PayPal = () => {
   const totaling = () => {
     const totall = products.reduce((total, cumm) => {
       return total + cumm.price;
-    }, 0);
+    }, [0]);
     return totall;
   };
 
