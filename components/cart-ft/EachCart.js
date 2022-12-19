@@ -8,7 +8,6 @@ export default function EachCart({
   incrementCount,
   removeItem,
 }) {
-  
   const { name, id, img, price, count } = items;
   let total = ` ${count * price}.00`;
   return (

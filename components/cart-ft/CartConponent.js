@@ -3,11 +3,13 @@ import CartMapping from "./CartMapping";
 import ShoppingDetails from "./ShoppingDetails";
 import { useState } from "react";
 import ShoppingBtn from "./ShoppingBtn";
+import PayPal from "./PayPal";
 
 export default function CartConponent() {
   const { products, decrementCount, incrementCount, removeItem } =
     useCartContext();
   const [slideView, setSlideView] = useState(false);
+  const [checkout, setCheckout] = useState(false);
 
   return (
     <section className="flex justify-center">
@@ -15,8 +17,10 @@ export default function CartConponent() {
         <div>
           {products.length === 0 && <p>No Cart Item, Hey add some items</p>}
         </div>
-        <ShoppingBtn setSlideView={setSlideView} />
-        <div>
+        <ShoppingBtn setSlideView={setSlideView} setCheckout={setCheckout}/>
+        {
+          checkout ? (<div className="flex justify-center"><PayPal/></div>):(
+            <div>
           <div
             className={
               slideView ? "grid grid-cols-2 space-x-10" : "grid grid-cols-1"
@@ -29,7 +33,7 @@ export default function CartConponent() {
                   : " duration-[.6s] overflow-x-hidden -translate-x-[2000px] opacity-1 h-0"
               }
             >
-              <ShoppingDetails products={products}/>
+              <ShoppingDetails products={products} setCheckout={setCheckout}/>
             </div>
             <div
               className={
@@ -49,6 +53,8 @@ export default function CartConponent() {
             </div>
           </div>
         </div>
+          )
+        }
       </div>
     </section>
   );

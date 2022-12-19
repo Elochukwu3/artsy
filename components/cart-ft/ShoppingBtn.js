@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 
-const ShoppingBtn = ({ setSlideView }) => {
+const ShoppingBtn = ({ setSlideView, setCheckout }) => {
   const [activeButton, setSlActiveButton] = useState("");
 
   const shoppingHandler = (e) => {
     setSlideView(true);
     setSlActiveButton(e.target.id);
+    setCheckout(false)
   };
 
   const shoppingDetailHandler = (e) => {
     setSlideView(false);
     setSlActiveButton(e.target.id);
+    setCheckout(false)
   };
+  const paymentHandler = (e)=>{
+    setSlActiveButton(e.target.id);
+    setCheckout(true)
+  }
   return (
     <div className="flex justify-center my-6 py-5 border-b-[3px] border-[#f2f2f2]">
       <div className="grid grid-cols-3 space-x-10 text-xl capitalize">
@@ -44,6 +50,7 @@ const ShoppingBtn = ({ setSlideView }) => {
               : "border-none bg-none"
           }
           id="btn_3"
+          onClick={paymentHandler}
         >
           Payment details
         </button>
