@@ -27,4 +27,40 @@ body {
   overflow-x: hidden;
   background: white;
   color: black;
+ 
 }
+.satoshi{
+  font-family: 'Satoshi';
+}
+.slick-prev:before, .slick-next:before {
+  color: grey!important;
+  border: 2px solid grey;
+  /* background-color: ; */
+}
+.slick-current{
+  scale: 1.038; 
+  transition: scale 900ms;
+}
+.slick-slide{
+  position: relative;
+}
+.slick-dots{
+bottom: -41px !important;
+}
+.slick-prev, .slick-next{
+  margin: 0 -8px;
+}
+.slick-dots li button:before{
+ 
+  font-size: 16px !important;
+  
+}
+/* .slick-slide{
+  display: block;
+}
+.slick-track{
+  display: grid;
+  background-color: green;
+  grid-template-columns: 1fr 1fr;
+  max-width: 100%;
+} */
