@@ -38,7 +38,6 @@ a{
 .slick-next:before {
   color: grey !important;
   border: 2px solid grey;
-  /* background-color: ; */
 }
 .slick-current {
   scale: 1.038;

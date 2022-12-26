@@ -37,7 +37,6 @@ const Bid = ({ pages }) => {
   const redirect = useRouter();
   const myElement = useRef(null);
 
-
   useEffect(() => {
     const handleClick = () => {
       myElement.current.scrollIntoView({ behavior: "smooth" });
@@ -94,17 +93,16 @@ const Bid = ({ pages }) => {
                 <Streamers image={"/live-img/live3.png"} />
                 <Streamers image={"/live-img/live4.png"} />
 
-                {newItem[newItem.length-1] !== "" && newItem.map((item, index) => {
-                  
-                  return (
-                    <Streamers
-                      image={"/live-img/live4.png"}
-                      text={item}
-                      key={item + index}
-                    />
-                  );
-                })
-                }
+                {newItem[newItem.length - 1] !== "" &&
+                  newItem.map((item, index) => {
+                    return (
+                      <Streamers
+                        image={"/live-img/live4.png"}
+                        text={item}
+                        key={item + index}
+                      />
+                    );
+                  })}
                 <li ref={myElement} className="opacity-0 h-20">
                   <p></p>
                 </li>
@@ -123,14 +121,21 @@ const Bid = ({ pages }) => {
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
               />
-             <div className="flex items-center space-x-6 px-2">
-             <button type="submit">
-                <Image src={"/icon/send.png"} width="30" height={"3"} />
-              </button>
-              <div className="">
-              <span className="text-red-600 text-4xl cursor-pointer">&#9829;</span>
+              <div className="flex items-center space-x-6 px-2">
+                <button type="submit">
+                  <Image
+                    src={"/icon/send.png"}
+                    width="30"
+                    height={"3"}
+                    alt="send-btn"
+                  />
+                </button>
+                <div className="">
+                  <span className="text-red-600 text-4xl cursor-pointer">
+                    &#9829;
+                  </span>
+                </div>
               </div>
-             </div>
             </form>
           </div>
         </div>
@@ -145,7 +150,7 @@ export const Streamers = ({ image, text }) => {
   return (
     <li className="flex items-center gap-5 each-li">
       <div className="w-20 h-20 relative">
-        <Image fill src={image} alt="he" objectFit="contain" />
+        <Image fill src={image} objectFit="contain" alt="stream-img" />
       </div>
       <div className="">
         <p>Marcu Allo</p>
