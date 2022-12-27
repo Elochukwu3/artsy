@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import Link from "next/link";
+
+import { toast } from "react-hot-toast";
 const sliders = [
   "/sales-img/slid (1).png",
   "/sales-img/slid (2).png",
@@ -46,26 +48,26 @@ const Auctions = () => {
           <span>Home/</span>
           <span>Auctions</span>
         </div>
-        <h1 className="satoshi font-[500] text-[25px] leading-[31.1px] mt-10">
+        <h1 className="satoshi font-[500] text-[25px] leading-[31.1px] mt-10 max-md:text-center max-sm:text-[23px]">
           Here’s an overview of products actively on auction, explore!
         </h1>
         <div className="mt-10">
           <Slider {...settings} className="mt-10">
-            <JoinLive image={sliders[0]} link={"/auction/auction1"}/>
+            <JoinLive image={sliders[0]} link={"/auction/auction1"} />
             <div>
-              <JoinLive image={sliders[1]} link={"/auction/auctionLive2"}/>
+              <JoinLive image={sliders[1]} link={"/auction/auctionLive2"} />
             </div>
             <div>
-              <JoinLive image={sliders[2]} link={"/auction/autionLive"}/>
+              <JoinLive image={sliders[2]} link={"/auction/autionLive"} />
             </div>
             <div>
-              <JoinLive image={sliders[0]} link={"/auction/auction1"}/>
+              <JoinLive image={sliders[0]} link={"/auction/auction1"} />
             </div>
             <div>
-              <JoinLive image={sliders[1]} link={"/auction/auctionLive2"}/>
+              <JoinLive image={sliders[1]} link={"/auction/auctionLive2"} />
             </div>
             <div>
-              <JoinLive image={sliders[2]} link={"/auction/autionLive"}/>
+              <JoinLive image={sliders[2]} link={"/auction/autionLive"} />
             </div>
           </Slider>
         </div>
@@ -104,19 +106,19 @@ export function JoinLive({ image, link }) {
   return (
     <div className="relative hover:scale-90 transition duration-[700ms] transition-scale">
       <Image src={image} width="400" height={"200"} alt="swipe" />
-    <Link href={link}>
-    <div className="absolute z-40 top-[30%] justify-center w-full flex items-center capitalize text-[1.3em] text-white gap-4">
-        <p> join Live Stream</p>
-        <p className="px-2 border border-[#ddd9] w-10 h-10 flex items-center justify-center rounded-full cursor-pointer">
-          <img
-            src="./featured-img/arrow.png"
-            className="w-11/12 brightness-0  invert"
-            alt="icon"
-          />
-        </p>
-      </div>
-    </Link>
-      
+      <Link href={link}>
+        <div className="absolute z-40 top-[30%] justify-center w-full flex items-center capitalize text-[1.3em] text-white gap-4">
+          <p> join Live Stream</p>
+          <p className="px-2 border border-[#ddd9] w-10 h-10 flex items-center justify-center rounded-full cursor-pointer">
+            <img
+              src="./featured-img/arrow.png"
+              className="w-11/12 brightness-0  invert"
+              alt="icon"
+            />
+          </p>
+        </div>
+      </Link>
+
       <div className="absolute z-40 top-[70%] w-full grid grid-cols-1 justify-center">
         <span
           className="text-white w-[80%] bg-[#f5f4f43d] mx-auto h-[60px] inline-block 
@@ -128,7 +130,13 @@ export function JoinLive({ image, link }) {
     </div>
   );
 }
+
+
+
 export function Card({ header, image, creator, date, highBid, currentBid }) {
+  const placeBid = ()=>{
+    toast(`Bid of ${currentBid}, successfully  placed`);
+  }
   return (
     <div className="flex flex-col">
       <div className="min-h-[280px] max-md:w-full my-10 bg-white rounded-[16px] drop-shadow-[0px_0px_2px_rgba(0, 0, 0, 0.25)] border-[0.5px] border-[#00000040]">
@@ -161,7 +169,10 @@ export function Card({ header, image, creator, date, highBid, currentBid }) {
             <span className="text-[#616161] block">Current bid </span>{" "}
             <span className="block font-[700]">{currentBid}</span>
           </div>
-          <button className="text-[25.78px] bg-[#3341C1] text-white w-[210px] py-2 hover:bg-[#051076] transition-background duration-[600ms]">
+          <button
+            className="text-[25.78px] bg-[#3341C1] text-white w-[210px] py-2 hover:bg-[#051076] transition-background duration-[600ms]"
+            onClick={placeBid}
+          >
             Place bid
           </button>
         </li>

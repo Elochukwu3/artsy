@@ -1,7 +1,8 @@
+import DropComp from "../components/drops/DropComp";
 
 
 export default function Drop() {
   return (
-    <div>drop</div>
+    <div><DropComp/></div>
   )
 }

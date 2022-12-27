@@ -1,7 +1,8 @@
+import DropComp from "../components/drops/DropComp";
 
 
 export default function Notify() {
   return (
-    <div>notify</div>
+    <div><DropComp/></div>
   )
 }

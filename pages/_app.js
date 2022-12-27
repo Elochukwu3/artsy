@@ -7,9 +7,7 @@ function MyApp({ Component, pageProps }) {
     <CartContextCreator>
       <script
         src="https://www.paypal.com/sdk/js?client-id=ARuQbScezgnvqNnrynCcQY6g8C71e03rl4ltgqQPAYB_5DajnfoDfUMQSc5528ci0cuEFzzHOoLlFlKj&currency=CAD"
-        defer
-      
-      />
+        defer/>
       <Layout>
         <Toaster position="center" />
         <Component {...pageProps} />

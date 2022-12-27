@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../../styles/Home.module.css";
 
 export default function HomeBanner() {
@@ -33,8 +34,12 @@ export default function HomeBanner() {
                       HIGHEST AND LOWEST BIDS.
                     </div>
                     <div className="flex items-center gap-2 shrink-0 max-md:w-[100%] max-[320px]:flex-wrap">
+                      <Link href={"/auction"}>
                       <p className="underline decoration-2 ">See More</p>
+                      </Link>
+                      <Link href={"/drop"}>
                       <button className="border border-[#FFFFFF] px-2 py-2.5 rounded-md max-[320px]:text-[.8em] max-[320px]:py-1">Set a reminder</button>
+                      </Link>
                     </div>
                   </div>
                 </div>

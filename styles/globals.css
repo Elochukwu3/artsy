@@ -61,7 +61,7 @@ a{
 }
 .full-block {
   width: 100%;
-  background: white;
+  /* background: #00000034; */
   text-align: center;
   overflow: auto;
   scrollbar-width: none;

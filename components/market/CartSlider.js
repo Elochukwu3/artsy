@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 
 
@@ -24,6 +24,21 @@ const sliderImg =[
 
 export  function CartSlider() {
   const [count, setCount] = useState(1);
+  const [resize, setResize] = useState(33);
+
+  const windWidth =()=>{
+    if ( window.innerWidth <= 700) {
+      setResize(100.333);
+    } else {
+      setResize(33);
+    }
+  }
+useEffect(() => {
+  windWidth()
+window.addEventListener("scroll", windWidth)
+  return () => removeEventListener("scroll", windWidth)
+}, [])
+
 
   const nextSlider = () => {
     if (count > sliderImg.length - 3) {
@@ -34,7 +49,8 @@ export  function CartSlider() {
   };
 
   const transLateVal = () => {
-    return -(count * 33.33);
+    
+    return -(count * resize);
   };
   const sliderStyle = () => {
     return {
@@ -45,10 +61,10 @@ export  function CartSlider() {
   };
   return (
     <section className='w-full flex justify-center'>
-      <div className='block w-[80%] overflow-x-hidden bg-grey-600'>
+      <div className='block w-[85%] overflow-x-hidden bg-grey-600  relative'>
         <section className='flex justify-between items-center my-20'>
         <div className='text-[32px] font-medium'>Explore more from this collection</div>
-        <div className='grid grid-cols-2 gap-4'>
+        <div className='grid grid-cols-2 gap-4 max-md:absolute max-md:bottom-[30%] max-md:w-full max-md:flex max-md:justify-around z-30'>
            <p className='border border-gray-400 w-auto h-auto grid items-center place-center py-5 px-4 rounded-full'>
            <Image src={'/icon/arrow-up.png'} width="20" height={"10"} className="-rotate-90" alt=""/>
            </p>
@@ -67,8 +83,9 @@ export  function CartSlider() {
             sliderImg.map(({img}, index) => {
               return (
                 <li
+
                   key={img + index}
-                  className="w-[33.33%] border-2 border-[grey] shrink-0 h-[55vh] flex flex-col  items-center"
+                  className="w-[33.33%] max-md:w-[100%] border-2 border-[grey] shrink-0 h-[55vh] flex flex-col  items-center"
                 >
                   <div className="text-3xl text-red-400 flex justify-end">
                   <span> &#9825;</span>

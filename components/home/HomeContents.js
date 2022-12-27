@@ -50,7 +50,10 @@ export default function HomeContents() {
         <div className="text-black font-semibold text-2xl border-b border-slate-300 py-10 flex justify-between items-center max-[518px]:px-3">
           <p>See auctions</p>
           <p className="w-11 h-9 max-[380px]:h-6 max-[380px]:w-8 relative">
+            <Link href={"/auction"}>
             <Image fill src="/featured-img/arrow-two.png" alt="arrow-two" />
+            
+            </Link>
           </p>
         </div>
       </section>
