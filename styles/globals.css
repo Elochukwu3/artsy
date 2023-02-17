@@ -17,7 +17,7 @@ a {
 * {
   box-sizing: border-box;
 }
-input{
+input {
   background-color: #f2f2f2;
 }
 html {
@@ -28,3 +28,67 @@ body {
   background: white;
   color: black;
 }
+a{
+  outline: none !important;
+}
+.satoshi {
+  font-family: "Satoshi";
+}
+.slick-prev:before,
+.slick-next:before {
+  color: grey !important;
+  border: 2px solid grey;
+}
+.slick-current {
+  scale: 1.038;
+  transition: scale 900ms;
+}
+.slick-slide {
+  position: relative;
+}
+.slick-dots {
+  bottom: -41px !important;
+}
+.slick-prev,
+.slick-next {
+  margin: 0 -8px;
+}
+.slick-dots li button:before {
+  font-size: 16px !important;
+}
+.trans {
+  transition: max-height 0.2s ease-out;
+}
+.full-block {
+  width: 100%;
+  /* background: #00000034; */
+  text-align: center;
+  overflow: auto;
+  scrollbar-width: none;
+  height: max-content;
+  transition: max-height 0.2s ease-out;
+}
+.full-block::-webkit-scrollbar {
+  display: none;
+}
+.each-li {
+  animation: floatup 0.5s forwards;
+}
+
+@keyframes floatup {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+.form-grad{
+
+  background-image: linear-gradient(rgba(120, 163, 173, 1),
+  rgba(192, 86, 9, 0.49));
+ 
+}
+

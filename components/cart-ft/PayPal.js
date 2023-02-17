@@ -9,9 +9,12 @@ const PayPal = () => {
   //   console.log(paypal);
   const router = useRouter();
   const totaling = () => {
-    const totall = products.reduce((total, cumm) => {
-      return total + cumm.price;
-    }, [0]);
+    const totall = products.reduce(
+      (total, cumm) => {
+        return total + cumm.price;
+      },
+      [0]
+    );
     return totall;
   };
 
@@ -23,27 +26,29 @@ const PayPal = () => {
   useEffect(() => {
     console.log(paypal.current);
 
-    window.paypal.Buttons({
-      createOrder: (data, actions, err) => {
-        return actions.order.create({
-          intent: "CAPTURE",
-          purchase_units: [
-            {
-              description: "Artsy",
-              amount: {
-                currency: "CAD",
-                value: totaling(),
+    window.paypal
+      .Buttons({
+        createOrder: (data, actions, err) => {
+          return actions.order.create({
+            intent: "CAPTURE",
+            purchase_units: [
+              {
+                description: "Artsy",
+                amount: {
+                  currency: "CAD",
+                  value: totaling(),
+                },
               },
-            },
-          ],
-        });
-      },
-      onApprove: result,
-      onError: (err) => {
-        console.log(err);
-      },
-    });
-    render(paypal.current);
+            ],
+          });
+        },
+        onApprove: result,
+        onError: (err) => {
+          console.log(err);
+        },
+      })
+      .render(paypal.current);
+
     // setPp(window.paypal.Buttons.renderTo());
   }, []);
 

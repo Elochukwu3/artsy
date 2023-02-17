@@ -12,15 +12,15 @@ export default function EachCart({
   let total = ` ${count * price}.00`;
   return (
     <>
-      <div className="flex h-[200px]  gap-4 max-sm:justify-between">
-        <div className="block h-full py-4 w-[185px] relative">
+      <div className="flex h-[200px]  gap-4 max-sm:justify-between max-sm:h-[150px]">
+        <div className="block h-full py-4 w-[185px] relative max-sm:w-[150px]">
           <Image src={img} alt={name} fill />
         </div>
 
-        <ul className="block h-full py-4 space-y-5 text-[18px] capitalize">
+        <ul className="block h-full py-4 space-y-5 text-[18px] capitalize max-sm:space-y-1">
           <li className="text-black font-semibold">{name}</li>
-          <li className="text-[#9ca3af]">Clearh</li>
-          <li className="text-[#9ca3af]">size: 200ft</li>
+          <li className="text-[#9ca3af] max-sm:opacity-0" >Clearh</li>
+          <li className="text-[#9ca3af] max-sm:opacity-0" >size: 200ft</li>
           <li className="flex gap-4 font-semibold">
             <span
               className="cursor-pointer text-[1.4em]"

@@ -39,70 +39,71 @@ export default function CartMapping({
             })
           : ""}
 
-          {
-            products.length > 0 && (
-              <li className="flex my-10 justify-between ">
-              <div className={!slideView ? "block basis-[40%]" : "hidden"}>
-                <button
-                  onClick={slideIn}
-                  type="submit"
-                  className="w-full  text-white text-[1.3em] font-medium py-3 
+        {products.length > 0 && (
+          <li className="flex my-10 justify-between max-md:flex-col-reverse  max-md:gap-10 ">
+            <div className={!slideView ? "block basis-[40%]" : "hidden"}>
+              <button
+                onClick={slideIn}
+                type="submit"
+                className="w-full  text-white text-[1.3em] font-medium py-3 
                 bg-[#3341C1] hover:bg-[#051076] scale-95 hover:scale-100 transition-transform duration-[.5s] mb-5"
+              >
+                Proceed to Checkout
+              </button>
+              <p>
+                <Link
+                  href={"/market_place/editorials"}
+                  className="capitalize text-xl text-blue-500 underline pl-5 "
                 >
-                  Proceed to Checkout
-                </button>
-                <p>
-                  <Link
-                    href={"/market_place/editorials"}
-                    className="capitalize text-xl text-blue-500 underline pl-5 "
-                  >
-                    Continue Shopping
-                  </Link>
-                </p>
+                  Continue Shopping
+                </Link>
+              </p>
+            </div>
+            <div
+              className={
+                !slideView ? "basis-[40%] h-auto text-left" : "basis-[100%]"
+              }
+            >
+              <div
+                className={
+                  !slideView
+                    ? "flex space-x-10 justify-between"
+                    : "flex space-x-10 justify-between"
+                }
+              >
+                <span className="text-xl font-[700]">Products in cart:</span>
+                <span className="text-[17px font-[600]">
+                  {products.length} items
+                </span>
               </div>
-              <div className= {!slideView?"basis-[40%] h-auto text-left":"basis-[100%]"}>
-                <div
-                  className={
-                    !slideView
-                      ? "flex space-x-10 justify-between"
-                      : "flex space-x-10 justify-between"
-                  }
-                >
-                  <span className="text-xl font-[700]">Products in cart:</span>
-                  <span className="text-[17px font-[600]">
-                    {products.length} items
-                  </span>
-                </div>
-                <div
-                  className={
-                    !slideView
-                      ? "flex space-x-10 justify-between"
-                      : "flex space-x-10 justify-between "
-                  }
-                >
-                  <span className="text-xl font-[700]">Shipping:</span>
-                  <span className="text-[17px font-[600]">
-                    ${Math.floor(Math.random() * 70)}.00
-                  </span>
-                </div>
-                <div
-                  className={
-                    !slideView
-                      ? "flex space-x-10 justify-between"
-                      : "flex space-x-10 justify-between"
-                  }
-                >
-                  <span className="text-xl font-[700]">Total:</span>
-                  <span className="text-[17px font-[600]">
-                    ${formatOperand(totaling())}
-                  </span>
-                </div>
+              <div
+                className={
+                  !slideView
+                    ? "flex space-x-10 justify-between"
+                    : "flex space-x-10 justify-between "
+                }
+              >
+                <span className="text-xl font-[700]">Shipping:</span>
+                <span className="text-[17px font-[600]">
+                  ${Math.floor(Math.random() * 70)}.00
+                </span>
               </div>
-            </li>
-    
-            )
-          }
-             </ul>
+              <div
+                className={
+                  !slideView
+                    ? "flex space-x-10 justify-between"
+                    : "flex space-x-10 justify-between"
+                }
+              >
+                <span className="text-xl font-[700]">Total:</span>
+                <span className="text-[17px font-[600]">
+                  ${formatOperand(totaling())}
+                </span>
+              </div>
+            </div>
+          </li>
+        )}
+      </ul>
     </div>
   );
 }
